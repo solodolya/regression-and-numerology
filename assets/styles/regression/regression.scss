@@ -1,2 +1,63 @@
 @import "../vars";
 @import "../templates";
+
+.main {
+  &__title {
+    margin: 100px auto;
+    @include title;
+    @media (max-width: $tablet) {
+      margin: 50px auto;
+    }
+  }
+}
+
+.content {
+  display: flex;
+  column-gap: 6%;
+  width: 80%;
+  margin: 0 auto 50px;
+  @media (max-width: $tablet) {
+    width: 90%;
+    margin-bottom: 30px;
+  }
+  @media (max-width: $mobile) {
+    flex-direction: column;
+    row-gap: 20px;
+  }
+  &__column {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    row-gap: 40px;
+    @media (max-width: $tablet) {
+      row-gap: 20px;
+    }
+    @media (max-width: $mobile) {
+      &:last-of-type {
+        flex-direction: column-reverse;
+      }
+    }
+  }
+  &__photo {
+    height: 790px;
+    @extend %img-style-fit;
+    .img {
+      border-radius: 6px;
+    }
+    @media (max-width: $tablet) {
+      height: 500px;
+    }
+    @media (max-width: $mobile) {
+      width: 60%;
+      height: 450px;
+      margin: 0 auto;
+    }
+  }
+  &__paragraph {
+    @include paragraph;
+  }
+}
+
+.consultation {
+  @include consultation-container;
+}
