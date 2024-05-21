@@ -3,4 +3,248 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+.content__photo .img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.consultation__link {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 83%;
+  text-transform: uppercase;
+}
+
+.main__title {
+  margin: 100px 10%;
+  font-size: 48px;
+  line-height: 108%;
+  font-weight: 500;
+  font-family: "IBM Plex Serif", sans-serif;
+  text-align: center;
+  color: #3d3f4e;
+}
+@media (max-width: 767px) {
+  .main__title {
+    font-size: 32px;
+    line-height: 120%;
+  }
+}
+@media (max-width: 1024px) {
+  .main__title {
+    margin: 50px 5%;
+  }
+}
+
+.content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(minmax(min-content, max-content));
+  grid-gap: 40px 6%;
+  width: 80%;
+  margin: 0 auto 50px;
+}
+@media (max-width: 1024px) {
+  .content {
+    grid-row-gap: 20px;
+    width: 90%;
+    margin-bottom: 30px;
+  }
+}
+@media (max-width: 767px) {
+  .content {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+  }
+}
+.content__column {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  row-gap: 40px;
+}
+@media (max-width: 1024px) {
+  .content__column {
+    row-gap: 20px;
+  }
+}
+.content__column--second {
+  grid-area: 1/2/3/3;
+}
+@media (max-width: 767px) {
+  .content__column--second .content__photo {
+    order: 1;
+  }
+}
+.content__paragraph {
+  font-size: 24px;
+  line-height: 133%;
+  font-weight: 400;
+  font-family: "IBM Plex Sans", sans-serif;
+  color: #3d3f4e;
+}
+@media (max-width: 767px) {
+  .content__paragraph {
+    font-size: 18px;
+  }
+}
+.content__photo {
+  height: 790px;
+}
+.content__photo .img {
+  border-radius: 6px;
+}
+@media (max-width: 1024px) {
+  .content__photo {
+    height: 500px;
+  }
+}
+@media (max-width: 767px) {
+  .content__photo {
+    width: 60%;
+    height: 450px;
+    margin: 0 auto;
+  }
+}
+.content__list {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  row-gap: 40px;
+}
+@media (max-width: 1024px) {
+  .content__list {
+    row-gap: 20px;
+  }
+}
+.content__list-item {
+  display: flex;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+  list-style-type: none;
+  font-size: 24px;
+  line-height: 133%;
+  font-weight: 400;
+  font-family: "IBM Plex Sans", sans-serif;
+  color: #3d3f4e;
+}
+@media (max-width: 767px) {
+  .content__list-item {
+    font-size: 18px;
+  }
+}
+.content__list-item:before {
+  content: "-";
+}
+
+.consultation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 80px;
+  padding: 50px 10%;
+  background-color: rgba(222, 212, 203, 0.4);
+}
+@media (max-width: 1024px) {
+  .consultation {
+    row-gap: 40px;
+    padding: 30px 5%;
+  }
+}
+.consultation__title {
+  font-size: 48px;
+  line-height: 108%;
+  font-weight: 500;
+  font-family: "IBM Plex Serif", sans-serif;
+  text-align: center;
+  color: #3d3f4e;
+  font-size: 40px;
+  line-height: 120%;
+}
+@media (max-width: 767px) {
+  .consultation__title {
+    font-size: 32px;
+    line-height: 120%;
+  }
+}
+@media (max-width: 767px) {
+  .consultation__title {
+    font-size: 28px;
+    line-height: 120%;
+  }
+}
+.consultation__buttons {
+  display: flex;
+  justify-content: center;
+  -moz-column-gap: 80px;
+       column-gap: 80px;
+}
+@media (max-width: 1024px) {
+  .consultation__buttons {
+    -moz-column-gap: 40px;
+         column-gap: 40px;
+  }
+}
+@media (max-width: 767px) {
+  .consultation__buttons {
+    flex-direction: column;
+    align-items: center;
+    row-gap: 20px;
+  }
+}
+.consultation__link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -moz-column-gap: 35px;
+       column-gap: 35px;
+  width: 315px;
+  height: 101px;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #4d4f5e;
+  border-radius: 50px;
+}
+@media (max-width: 1024px) {
+  .consultation__link {
+    -moz-column-gap: 20px;
+         column-gap: 20px;
+    width: 260px;
+    height: 80px;
+    font-size: 20px;
+  }
+}
+@media (max-width: 767px) {
+  .consultation__link {
+    width: 200px;
+    height: 60px;
+    font-size: 18px;
+  }
+}
+.consultation__link::before {
+  content: "";
+  width: 72px;
+  height: 72px;
+  background-image: url("../../images/telegram-icon.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+@media (max-width: 1024px) {
+  .consultation__link::before {
+    width: 60px;
+    height: 60px;
+  }
+}
+@media (max-width: 767px) {
+  .consultation__link::before {
+    width: 45px;
+    height: 45px;
+  }
 }/*# sourceMappingURL=numerology.css.map */
