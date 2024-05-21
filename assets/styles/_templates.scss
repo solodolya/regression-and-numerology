@@ -120,3 +120,60 @@
     }
   }
 }
+
+@mixin footer-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 80px;
+  padding: 50px 10%;
+  background-color: $bg-color-dark;
+  @media (max-width: $tablet) {
+    row-gap: 40px;
+    padding: 30px 5%;
+  }
+
+  &__title {
+    @include title;
+    font-size: 40px;
+    line-height: 120%;
+    color: $text-light;
+    @media (max-width: $mobile) {
+      font-size: 28px;
+      line-height: 120%;
+    }
+  }
+  &__buttons {
+    display: flex;
+    justify-content: center;
+    column-gap: 100px;
+    @media (max-width: $tablet) {
+      column-gap: 80px;
+    }
+    @media (max-width: $mobile) {
+      column-gap: 20px;
+    }
+  }
+  &__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 70px;
+    text-decoration: none;
+    color: $text-light;
+    @media (max-width: $mobile) {
+      width: 50px;
+      height: 50px;
+    }
+  }
+  &__link-icon {
+      width: 100%;
+  }
+}
+
+@mixin hover-cursor {
+	&:hover {
+		cursor: pointer;
+	}
+}

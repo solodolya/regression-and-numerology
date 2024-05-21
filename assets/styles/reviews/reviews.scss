@@ -1,2 +1,263 @@
 @import "../vars";
 @import "../templates";
+
+.header {
+    padding: 10px 0;
+    margin-bottom: 50px;
+    width: 100%;
+    height: auto;
+    box-shadow: $header-shadow;
+    font-family: $font-family;
+    @media (max-width: $tablet) {
+        display: grid;
+        margin-bottom: 25px;
+    }
+    &__nav {
+        margin: auto;
+        width: max-content;
+        display: flex;
+        justify-content: space-between;
+		align-items: center;
+        @media (max-width: $tablet) {
+            width: 90%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+    }
+}
+
+.logo-container {
+    display: none;
+    @media (max-width: $tablet) {
+        margin-right: 10%;
+        width: 65%;
+        display: flex;
+        flex-grow: 1;
+        text-align: left;
+    }
+    &__name {
+        font-family: $second-family;
+        color: $text-dark;
+        font-size:28px;
+        line-height: 36px;
+        font-weight: 500;
+    }
+}
+
+.menu-container {
+    margin: 0;
+    width: auto;
+    display: flex;
+    font-family: $font-family;
+    color: $text-dark;
+    font-size:20px;
+    line-height: 24px;
+    font-weight: 400;
+    @media (max-width:$tablet){
+        display: none;
+    }
+}
+
+.menu{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    margin-right: 10px;
+    @media (max-width:$mobile){
+        display: block;
+        }
+    &__item{
+        position: relative;
+        list-style: none;
+    }
+    &__link{
+        display: block;
+        padding: 15px;
+        text-decoration: none;
+        text-transform: uppercase;
+        color: $text-dark;
+        transition: all 0.3s ease;
+        @media (max-width: $tablet){
+            padding: 10px;
+        }
+    }
+    &__link:hover{
+    background: $bg-color-light;
+    box-shadow: $header-shadow;
+    transition: all 0.3s ease;
+    }
+    &__link:hover ~ .menu-directions{
+        display: block;
+    }
+    &__button{
+        display: flex;
+        justify-self: flex-end;
+        background: $bg-color-dark;
+        font-family: $font-family;
+        color: $text-light;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 83%;
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 1rem 1.5rem;
+        border-radius: 50px;
+        @media (max-width: $tablet) {
+            display: none;
+        }
+    }
+}
+
+.menu-directions{
+    position: absolute;
+    min-width: 150px;
+    display: none;
+    background-color: $text-light;
+    &__item{
+        position: relative;
+        list-style: none;
+    }
+    &__link{
+        padding: 10px;
+        list-style: none;
+        display: block;
+        padding: 15px 30px 15px 40px;
+        text-decoration: none;
+        text-transform: uppercase;
+        color: $text-dark;
+        transition: all 0.3s ease;
+    }
+    &__link:hover{
+        background: $bg-color-light;
+        box-shadow: $header-shadow;
+        transition: all 0.3s ease;
+        }
+}
+.menu-directions:hover{
+    display: block;
+}
+
+.burger-menu {
+	display: none;
+	@media (max-width: $tablet) {
+		display: block;
+        box-shadow: $header-shadow;
+		&__burger-checkbox {
+			opacity: 0;
+		}
+		&__burger-checkbox:checked ~ &__burger > span {
+			width: 100%;
+			transform: rotate(45deg);
+		}
+		&__burger-checkbox:checked ~ &__burger > span::before {
+			top: 0;
+			width: 100%;
+			transform: rotate(0);
+		}
+		&__burger-checkbox:checked ~ &__burger > span::after {
+			top: 0;
+			width: 100%;
+			transform: rotate(90deg);
+		}
+		&__burger-checkbox:checked ~ .menu {
+			visibility: visible;
+			right: 0;
+		}
+		&__burger-checkbox:checked ~ .menu {
+			visibility: visible;
+			right: 0;
+		}
+		&__burger-checkbox:checked ~ &__burger {
+			border: none;
+		}
+		&__burger {
+			position: absolute;
+			top: 10px;
+			right: 5%;
+			z-index: 1;
+			display: flex;
+			align-items: center;
+			width: 48px;
+			height: 48px;
+			border: 1px solid $bg-color-dark;
+			border-radius: 6px;
+			@include hover-cursor;
+			& > span,
+			& > span::before,
+			& > span::after {
+				position: absolute;
+				left: 16px;
+				display: block;
+				width: 16px;
+				height: 2px;
+				background-color: $bg-color-dark;
+				border-radius: 1px;
+				transition-duration: 0.25s;
+			}
+			& > span::before {
+				content: "";
+				left: 0;
+				top: -8px;
+			}
+			& > span::after {
+				content: "";
+				left: 0;
+				top: 8px;
+			}
+		}
+		.menu {
+			position: fixed;
+			visibility: hidden;
+			top: 0;
+			right: 0;
+			display: flex;
+			flex-direction: column;
+			align-items: flex-end;
+			width: 300px;
+            height: auto;
+			margin: 0;
+			padding: 60px 0;
+			background-color: $text-light;
+			transition-duration: 0.25s;
+            font-family: $font-family;
+            color: $text-dark;
+            font-size:20px;
+            line-height: 24px;
+            font-weight: 400;
+            box-shadow: $header-shadow;
+			&__item{
+				display: block;
+                text-align: end;
+				padding-right: 24px;
+				transition-duration: 0.25s;
+			}
+            &__link{
+                text-decoration: none;
+                font-family: $font-family;
+                color: $text-dark;
+                font-size: 20px;
+                line-height: 24px;
+                font-weight: 400;
+            }
+            &__link:hover{
+                background: $bg-color-light;
+                box-shadow: $header-shadow;
+                transition: all 0.3s ease;
+            }
+		}
+	}
+}
+
+.consultation {
+    @include consultation-container;
+}
+
+.footer-content {
+    padding-top: 50px;
+    @media (max-width: $mobile) {
+        padding-top: 25px;
+    }
+}
+.footer {
+    @include footer-container;
+}
