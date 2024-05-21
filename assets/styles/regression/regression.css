@@ -21,7 +21,7 @@
 }
 
 .main__title {
-  margin: 100px auto;
+  margin: 100px 10%;
   font-size: 48px;
   line-height: 108%;
   font-weight: 500;
@@ -37,7 +37,7 @@
 }
 @media (max-width: 1024px) {
   .main__title {
-    margin: 50px auto;
+    margin: 50px 5%;
   }
 }
 
