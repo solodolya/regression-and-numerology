@@ -1,2 +1,65 @@
 @import "../vars";
 @import "../templates";
+
+.main {
+  &__title {
+    margin: 100px 10%;
+    @include title;
+    @media (max-width: $tablet) {
+      margin: 50px 5%;
+    }
+  }
+}
+
+.content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(minmax(min-content, max-content));
+  grid-gap: 40px 6%;
+  width: 80%;
+  margin: 0 auto 50px;
+  @media (max-width: $tablet) {
+    grid-row-gap: 20px;
+    width: 90%;
+    margin-bottom: 30px;
+  }
+  @media (max-width: $mobile) {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+  }
+  &__column {
+    @include content-column;
+    &--second {
+      grid-area: 1/2/3/3;
+      @media (max-width: $mobile) {
+        .content__photo {
+          order: 1;
+        }
+      }
+    }
+  }
+
+  &__paragraph {
+    @include paragraph;
+  }
+  &__photo {
+    @include content-photo;
+  }
+  &__list {
+    @include content-column;
+  }
+  &__list-item {
+    display: flex;
+    column-gap: 20px;
+    list-style-type: none;
+    @include paragraph;
+    &:before {
+      content: "-";
+    }
+  }
+}
+
+.consultation {
+  @include consultation-container;
+}

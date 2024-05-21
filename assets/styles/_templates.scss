@@ -44,6 +44,32 @@
   text-transform: uppercase;
 }
 
+@mixin content-column {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  row-gap: 40px;
+  @media (max-width: $tablet) {
+    row-gap: 20px;
+  }
+}
+
+@mixin content-photo {
+  height: 790px;
+  @extend %img-style-fit;
+  .img {
+    border-radius: 6px;
+  }
+  @media (max-width: $tablet) {
+    height: 500px;
+  }
+  @media (max-width: $mobile) {
+    width: 60%;
+    height: 450px;
+    margin: 0 auto;
+  }
+}
+
 @mixin consultation-container {
   display: flex;
   flex-direction: column;
