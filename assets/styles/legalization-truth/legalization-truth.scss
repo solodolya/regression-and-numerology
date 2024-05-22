@@ -1,2 +1,45 @@
 @import "../vars";
 @import "../templates";
+
+.main {
+  &__title {
+    margin: 100px 10%;
+    @include title;
+    @media (max-width: $tablet) {
+      margin: 50px 5%;
+    }
+  }
+}
+
+.content {
+  display: flex;
+  column-gap: 6%;
+  width: 80%;
+  margin: 0 auto 50px;
+  @media (max-width: $tablet) {
+    width: 90%;
+    margin-bottom: 30px;
+  }
+  @media (max-width: $mobile) {
+    flex-direction: column;
+    row-gap: 20px;
+  }
+  &__column {
+    @include content-column;
+    @media (max-width: $mobile) {
+      .content__photo {
+        order: 1;
+      }
+    }
+  }
+  &__photo {
+    @include content-photo;
+  }
+  &__paragraph {
+    @include paragraph;
+  }
+}
+
+.consultation {
+  @include consultation-container;
+}
