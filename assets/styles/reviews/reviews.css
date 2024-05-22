@@ -6,7 +6,7 @@
   box-sizing: border-box;
 }
 
-.consultation__link {
+.menu__button {
   font-family: "IBM Plex Sans", sans-serif;
   font-weight: 700;
   font-size: 24px;
@@ -55,11 +55,25 @@
   }
 }
 .logo-container__name {
-  font-family: "IBM Plex Serif", sans-serif;
-  color: #3d3f4e;
-  font-size: 28px;
-  line-height: 36px;
+  font-size: 48px;
+  line-height: 108%;
   font-weight: 500;
+  font-family: "IBM Plex Serif", sans-serif;
+  text-align: center;
+  color: #3d3f4e;
+  line-height: 120%;
+}
+@media (max-width: 767px) {
+  .logo-container__name {
+    font-size: 32px;
+    line-height: 120%;
+  }
+}
+@media (max-width: 1024px) {
+  .logo-container__name {
+    font-size: 28px;
+    line-height: 36px;
+  }
 }
 
 .menu-container {
@@ -124,7 +138,6 @@
   background: #4d4f5e;
   font-family: "IBM Plex Sans", sans-serif;
   color: #ffffff;
-  font-weight: 700;
   font-size: 24px;
   line-height: 83%;
   text-transform: uppercase;
@@ -186,7 +199,6 @@
 
 .dropdown:hover .dropdown-icon::after {
   content: "∧";
-  transition-duration: 0.25s;
 }
 
 .burger-menu {
@@ -302,120 +314,65 @@
   }
 }
 
-.consultation {
-  margin-bottom: 50px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  row-gap: 80px;
-  padding: 50px 10%;
-  background-color: rgba(222, 212, 203, 0.4);
-}
-@media (max-width: 1024px) {
-  .consultation {
-    row-gap: 40px;
-    padding: 30px 5%;
-  }
-}
-.consultation__title {
+.main__title {
+  margin: 100px 10%;
   font-size: 48px;
   line-height: 108%;
   font-weight: 500;
   font-family: "IBM Plex Serif", sans-serif;
   text-align: center;
   color: #3d3f4e;
-  font-size: 40px;
-  line-height: 120%;
 }
 @media (max-width: 767px) {
-  .consultation__title {
+  .main__title {
     font-size: 32px;
     line-height: 120%;
   }
 }
-@media (max-width: 767px) {
-  .consultation__title {
-    font-size: 28px;
-    line-height: 120%;
+@media (max-width: 1024px) {
+  .main__title {
+    margin: 50px 5%;
   }
 }
-.consultation__buttons {
+
+.content {
   display: flex;
-  justify-content: center;
-  -moz-column-gap: 80px;
-       column-gap: 80px;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: stretch;
+  -moz-column-gap: 100px;
+       column-gap: 100px;
+  row-gap: 100px;
+  width: 80%;
+  margin: 0 10% 100px;
 }
 @media (max-width: 1024px) {
-  .consultation__buttons {
-    -moz-column-gap: 40px;
-         column-gap: 40px;
+  .content {
+    width: 90%;
+    margin: 0 5% 50px;
   }
 }
-@media (max-width: 767px) {
-  .consultation__buttons {
-    flex-direction: column;
-    align-items: center;
-    row-gap: 20px;
-  }
-}
-.consultation__link {
+.content__review {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  -moz-column-gap: 35px;
-       column-gap: 35px;
-  width: 315px;
-  height: 101px;
-  text-decoration: none;
-  color: #ffffff;
-  background-color: #4d4f5e;
-  border-radius: 50px;
+  padding: 20px;
+  border: 3px solid #4d4f5e;
+  border-radius: 3px;
 }
-@media (max-width: 1024px) {
-  .consultation__link {
-    -moz-column-gap: 20px;
-         column-gap: 20px;
-    width: 260px;
-    height: 80px;
-    font-size: 20px;
-  }
+.content__paragrath {
+  font-size: 24px;
+  line-height: 133%;
+  font-weight: 400;
+  font-family: "IBM Plex Sans", sans-serif;
+  color: #3d3f4e;
+  font-size: 20px;
+  font-family: IBM Plex Sans;
+  font-size: 18px;
+  line-height: 27px;
+  text-align: left;
 }
 @media (max-width: 767px) {
-  .consultation__link {
-    width: 200px;
-    height: 60px;
+  .content__paragrath {
     font-size: 18px;
-  }
-}
-.consultation__link::before {
-  content: "";
-  width: 72px;
-  height: 72px;
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-@media (max-width: 1024px) {
-  .consultation__link::before {
-    width: 60px;
-    height: 60px;
-  }
-}
-@media (max-width: 767px) {
-  .consultation__link::before {
-    width: 45px;
-    height: 45px;
-  }
-}
-.consultation__link:first-of-type::before {
-  background-image: url("../../images/telegram-icon.svg");
-}
-.consultation__link:last-of-type::before {
-  background-image: url("../../images/whatsapp-icon.svg");
-}
-@media (max-width: 767px) {
-  .consultation {
-    margin-bottom: 25px;
   }
 }
 

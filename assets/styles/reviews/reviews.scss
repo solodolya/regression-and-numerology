@@ -35,11 +35,13 @@
         text-align: left;
     }
     &__name {
-        font-family: $second-family;
-        color: $text-dark;
-        font-size:28px;
-        line-height: 36px;
-        font-weight: 500;
+        @include title;
+       //font-size: 40px;
+        line-height: 120%;
+        @media (max-width: $tablet) {
+            font-size:28px;
+            line-height: 36px;
+        }
     }
 }
 
@@ -95,10 +97,10 @@
     &__button{
         display: flex;
         justify-self: flex-end;
+        @extend %button-text;
         background: $bg-color-dark;
         font-family: $font-family;
         color: $text-light;
-        font-weight: 700;
         font-size: 24px;
         line-height: 83%;
         text-transform: uppercase;
@@ -158,7 +160,6 @@
 
 .dropdown:hover .dropdown-icon::after{
     content: '\2227';
-    transition-duration: 0.25s;
 }
 
 .burger-menu {
@@ -272,11 +273,44 @@
 	}
 }
 
-.consultation {
-    margin-bottom: 50px;
-    @include consultation-container;
-    @media (max-width: $mobile) {
-        margin-bottom: 25px;
+.main {
+    &__title {
+        margin: 100px 10%;
+        @include title;
+        @media (max-width: $tablet) {
+            margin: 50px 5%;
+        }
+    }
+}
+
+.content{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items:stretch;
+    column-gap: 100px;
+    row-gap: 100px;
+    width: 80%;
+    margin: 0 10% 100px;
+    @media (max-width: $tablet) {
+        width: 90%;
+        margin: 0 5% 50px;
+    }
+
+    &__review{
+        display: flex;
+        padding: 20px;
+        border: 3px solid $bg-color-dark;
+        border-radius: 3px;
+        
+    }
+    &__paragrath{
+        @include paragraph;
+        font-size: 20px;
+        font-family: IBM Plex Sans;
+        font-size: 18px;
+        line-height: 27px;
+        text-align: left;
     }
 }
 
