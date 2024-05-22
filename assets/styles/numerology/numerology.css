@@ -231,8 +231,7 @@
   content: "";
   width: 72px;
   height: 72px;
-  background-image: url("../../images/telegram-icon.svg");
-  background-size: cover;
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -247,4 +246,10 @@
     width: 45px;
     height: 45px;
   }
+}
+.consultation__link:first-of-type::before {
+  background-image: url("../../images/telegram-icon.svg");
+}
+.consultation__link:last-of-type::before {
+  background-image: url("../../images/whatsapp-icon.svg");
 }/*# sourceMappingURL=numerology.css.map */

@@ -27,8 +27,8 @@
   &__column {
     @include content-column;
     @media (max-width: $mobile) {
-      &:last-of-type {
-        flex-direction: column-reverse;
+      .content__photo {
+        order: 1;
       }
     }
   }
