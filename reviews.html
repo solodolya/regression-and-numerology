@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="./assets/styles/reviews/reviews.css" />
     <link rel="shortcut icon" href="./assets/images/favicon.svg" type="image/svg+xml" />
     <title>Наталия Елизарова. Регрессия и нумерология</title>
-  </head>
-  <body>
+	</head>
+	<body>
     <header class="header">
-      <article class="header__nav">
+    	<article class="header__nav">
 				<div class="logo-container">
 					<h2 class="logo-container__name">Наталия Елизарова. Регрессия и нумерология</h2>
 				</div>
@@ -21,7 +21,7 @@
 							<a class="menu__link" href="./about.html">ОБО МНЕ</a>
 						</li>
 						<li class="menu__item">
-							<a class="menu__link" href="#">НАПРАВЛЕНИЯ</a>
+							<a class="menu__link dropdown" href="#">НАПРАВЛЕНИЯ<i class="dropdown-icon"></i></a>
 							<ul class="menu-directions">
 								<li class="menu-directions__item">
 									<a class="menu-directions__link" href="./numerology.html">КАРМИЧЕСКАЯ НУМЕРОЛОГИЯ</a>
@@ -46,8 +46,11 @@
 						<li class="menu__item">
 							<a class="menu__link" href="./reviews.html">ОТЗЫВЫ</a>
 						</li>
+            <li class="menu__item">
+							<a class="menu__button" href="./contacts.html">КОНТАКТЫ</a>
+						</li>
 					</ul>
-					<a class="menu__button" href="./contacts.html">КОНТАКТЫ</a>
+					<!--a class="menu__button" href="./contacts.html">КОНТАКТЫ</a-->
 				</nav>
 				<div class="burger-menu">
 					<input class="burger-menu__burger-checkbox" id="burger-checkbox" type="checkbox"/>
@@ -87,7 +90,6 @@
 			</article>
     </header>
     <main class="main">
-      <article></article>
       <article class="consultation">
         <h2 class="consultation__title">Записаться на консультацию</h2>
         <div class="consultation__buttons">
@@ -110,8 +112,7 @@
         </div>
       </article>
     </main>
-    <footer class="footer-content">
-      <article class="footer">
+    <footer class="footer">
 				<h2 class="footer__title">Наталия Елизарова. Регрессия и нумерология</h2>
         <div class="footer__buttons">
 					<a class="footer__link" href="https://wa.me/79118738152" target="_blank">
@@ -124,7 +125,6 @@
 						<img class="footer__link-icon" src="./assets/images/email-icon.svg" alt="Mail logo" />
 					</a>
 				</div>
-      </article>
     </footer>
     <script src="./assets/bootstrap/js/bootstrap.bundle.min.js"></script>
   </body>

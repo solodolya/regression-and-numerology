@@ -2,10 +2,10 @@
 @import "../templates";
 
 .header {
-    padding: 10px 0;
-    margin-bottom: 50px;
     width: 100%;
     height: auto;
+    padding: 10px 0;
+    margin-bottom: 50px;
     box-shadow: $header-shadow;
     font-family: $font-family;
     @media (max-width: $tablet) {
@@ -13,13 +13,12 @@
         margin-bottom: 25px;
     }
     &__nav {
+        width: 95%;
         margin: auto;
-        width: max-content;
         display: flex;
-        justify-content: space-between;
 		align-items: center;
         @media (max-width: $tablet) {
-            width: 90%;
+            width: 80%;
             height: auto;
             margin-bottom: 10px;
         }
@@ -46,8 +45,9 @@
 
 .menu-container {
     margin: 0;
-    width: auto;
+    width: 100%;
     display: flex;
+    justify-content: space-between;
     font-family: $font-family;
     color: $text-dark;
     font-size:20px;
@@ -61,18 +61,21 @@
 .menu{
     display: flex;
     flex-flow: row nowrap;
-    justify-content: center;
-    margin-right: 10px;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
     @media (max-width:$mobile){
         display: block;
         }
     &__item{
+        flex-shrink: 1;
         position: relative;
         list-style: none;
     }
     &__link{
         display: block;
-        padding: 15px;
+        text-align: center;
+        padding: 10px;
         text-decoration: none;
         text-transform: uppercase;
         color: $text-dark;
@@ -110,9 +113,10 @@
 
 .menu-directions{
     position: absolute;
-    min-width: 150px;
+    width: 400px;
     display: none;
     background-color: $text-light;
+    box-shadow: $header-shadow;
     &__item{
         position: relative;
         list-style: none;
@@ -121,7 +125,6 @@
         padding: 10px;
         list-style: none;
         display: block;
-        padding: 15px 30px 15px 40px;
         text-decoration: none;
         text-transform: uppercase;
         color: $text-dark;
@@ -131,10 +134,31 @@
         background: $bg-color-light;
         box-shadow: $header-shadow;
         transition: all 0.3s ease;
-        }
+    }
 }
+
 .menu-directions:hover{
     display: block;
+}
+
+.dropdown-icon{
+    display: inline-block;
+    vertical-align: top;
+    width: 15px;
+    height: 15px;
+    color: $bg-color-dark;
+    font-size: 16px;  
+    background-color: transparent;
+    z-index: 2;
+    font-style: normal;
+}
+.dropdown-icon::after {
+    content: '\2228';
+}
+
+.dropdown:hover .dropdown-icon::after{
+    content: '\2227';
+    transition-duration: 0.25s;
 }
 
 .burger-menu {
@@ -213,10 +237,10 @@
 			display: flex;
 			flex-direction: column;
 			align-items: flex-end;
-			width: 300px;
+			max-width: 400px;
             height: auto;
 			margin: 0;
-			padding: 60px 0;
+			padding: 60px 0 20px;
 			background-color: $text-light;
 			transition-duration: 0.25s;
             font-family: $font-family;
@@ -249,15 +273,17 @@
 }
 
 .consultation {
+    margin-bottom: 50px;
     @include consultation-container;
+    @media (max-width: $mobile) {
+        margin-bottom: 25px;
+    }
 }
 
-.footer-content {
+.footer {
     padding-top: 50px;
+    @include footer-container;
     @media (max-width: $mobile) {
         padding-top: 25px;
     }
-}
-.footer {
-    @include footer-container;
 }
