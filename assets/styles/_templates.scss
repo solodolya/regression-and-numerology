@@ -173,6 +173,12 @@
       font-size: 28px;
       line-height: 120%;
     }
+    .br{
+      display: none;
+      @media (max-width: $mobile) {
+        display: inline;
+      }
+    }
   }
   &__buttons {
     display: flex;

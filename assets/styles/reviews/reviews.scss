@@ -2,23 +2,22 @@
 @import "../templates";
 
 .header {
-    width: 100%;
     height: auto;
     padding: 10px 0;
     margin-bottom: 50px;
-    box-shadow: $header-shadow;
     font-family: $font-family;
+    box-shadow: $header-shadow;
     @media (max-width: $tablet) {
         display: grid;
         margin-bottom: 25px;
     }
     &__nav {
-        width: 95%;
-        margin: auto;
         display: flex;
 		align-items: center;
+        width: 95%;
+        margin: auto;
         @media (max-width: $tablet) {
-            width: 80%;
+            width: 90%;
             height: auto;
             margin-bottom: 10px;
         }
@@ -28,33 +27,36 @@
 .logo-container {
     display: none;
     @media (max-width: $tablet) {
-        margin-right: 10%;
-        width: 65%;
         display: flex;
         flex-grow: 1;
-        text-align: left;
+        width: 65%;
+        margin-right: 10%;
     }
     &__name {
-        @include title;
-       //font-size: 40px;
-        line-height: 120%;
+        margin: 0;
         @media (max-width: $tablet) {
-            font-size:28px;
+            @include title;
+            line-height: 120%;
+            font-size: 36px;
+            text-align: left;
+        }
+        @media (max-width: $mobile) {
             line-height: 36px;
+            font-size: 28px;
         }
     }
 }
 
 .menu-container {
-    margin: 0;
-    width: 100%;
     display: flex;
     justify-content: space-between;
-    font-family: $font-family;
-    color: $text-dark;
+    width: 100%;
+    margin: 0;
     font-size:20px;
     line-height: 24px;
     font-weight: 400;
+    font-family: $font-family;
+    color: $text-dark;
     @media (max-width:$tablet){
         display: none;
     }
@@ -68,44 +70,37 @@
     width: 100%;
     @media (max-width:$mobile){
         display: block;
-        }
+    }
     &__item{
-        flex-shrink: 1;
         position: relative;
+        flex-shrink: 1;
         list-style: none;
     }
     &__link{
         display: block;
-        text-align: center;
         padding: 10px;
         text-decoration: none;
         text-transform: uppercase;
+        text-align: center;
         color: $text-dark;
         transition: all 0.3s ease;
-        @media (max-width: $tablet){
-            padding: 10px;
+        &:hover{
+            background: $bg-color-light;
+            box-shadow: $header-shadow;
+            transition: all 0.3s ease;;
         }
-    }
-    &__link:hover{
-    background: $bg-color-light;
-    box-shadow: $header-shadow;
-    transition: all 0.3s ease;
-    }
-    &__link:hover ~ .menu-directions{
-        display: block;
+        &:hover ~ .menu-directions{
+            display: block;
+        }
     }
     &__button{
         display: flex;
         justify-self: flex-end;
+        padding: 15px 20px;
         @extend %button-text;
-        background: $bg-color-dark;
-        font-family: $font-family;
-        color: $text-light;
-        font-size: 24px;
-        line-height: 83%;
-        text-transform: uppercase;
         text-decoration: none;
-        padding: 1rem 1.5rem;
+        color: $text-light;
+        background: $bg-color-dark;
         border-radius: 50px;
         @media (max-width: $tablet) {
             display: none;
@@ -115,47 +110,47 @@
 
 .menu-directions{
     position: absolute;
-    width: 400px;
     display: none;
+    width: 400px;
     background-color: $text-light;
     box-shadow: $header-shadow;
+    &:hover{
+        display: block;
+    }
     &__item{
         position: relative;
         list-style: none;
     }
     &__link{
-        padding: 10px;
-        list-style: none;
         display: block;
+        padding: 10px;
         text-decoration: none;
         text-transform: uppercase;
         color: $text-dark;
+        list-style: none;
         transition: all 0.3s ease;
+        &:hover{
+            background: $bg-color-light;
+            box-shadow: $header-shadow;
+            transition: all 0.3s ease;;
+        }
     }
-    &__link:hover{
-        background: $bg-color-light;
-        box-shadow: $header-shadow;
-        transition: all 0.3s ease;
-    }
-}
-
-.menu-directions:hover{
-    display: block;
 }
 
 .dropdown-icon{
+    z-index: 2;
     display: inline-block;
     vertical-align: top;
     width: 15px;
     height: 15px;
-    color: $bg-color-dark;
-    font-size: 16px;  
-    background-color: transparent;
-    z-index: 2;
+    margin-left: 5px;
     font-style: normal;
-}
-.dropdown-icon::after {
-    content: '\2228';
+    font-size: 16px;
+    color: $bg-color-dark;
+    background-color: transparent;
+    &::after {
+        content: '\2228';
+    }
 }
 
 .dropdown:hover .dropdown-icon::after{
@@ -197,7 +192,7 @@
 		}
 		&__burger {
 			position: absolute;
-			top: 10px;
+			top: 20px;
 			right: 5%;
 			z-index: 1;
 			display: flex;
@@ -242,32 +237,27 @@
             height: auto;
 			margin: 0;
 			padding: 60px 0 20px;
-			background-color: $text-light;
-			transition-duration: 0.25s;
-            font-family: $font-family;
-            color: $text-dark;
-            font-size:20px;
-            line-height: 24px;
-            font-weight: 400;
+            background-color: $text-light;
             box-shadow: $header-shadow;
+            transition-duration: 0.25s;
 			&__item{
 				display: block;
-                text-align: end;
 				padding-right: 24px;
+                text-align: end;
 				transition-duration: 0.25s;
 			}
             &__link{
-                text-decoration: none;
-                font-family: $font-family;
-                color: $text-dark;
                 font-size: 20px;
                 line-height: 24px;
                 font-weight: 400;
-            }
-            &__link:hover{
-                background: $bg-color-light;
-                box-shadow: $header-shadow;
-                transition: all 0.3s ease;
+                font-family: $font-family;
+                text-decoration: none;
+                color: $text-dark;
+                &:hover{
+                    background: $bg-color-light;
+                    box-shadow: $header-shadow;
+                    transition: all 0.3s ease;;
+                }
             }
 		}
 	}
@@ -275,10 +265,10 @@
 
 .main {
     &__title {
-        margin: 100px 10%;
+        margin: 50px 10%;
         @include title;
         @media (max-width: $tablet) {
-            margin: 50px 5%;
+            margin: 25px 5%;
         }
     }
 }
@@ -288,30 +278,109 @@
     flex-flow: row wrap;
     justify-content: space-between;
     align-items:stretch;
-    column-gap: 100px;
-    row-gap: 100px;
+    row-gap: 80px;
     width: 80%;
     margin: 0 10% 100px;
     @media (max-width: $tablet) {
+        row-gap: 50px;
         width: 90%;
         margin: 0 5% 50px;
     }
-
     &__review{
         display: flex;
-        padding: 20px;
-        border: 3px solid $bg-color-dark;
-        border-radius: 3px;
-        
+        @media (max-width: $mobile) {
+            display: none;
+        }
+            &--middle{
+                align-items: center;
+                justify-content: space-between;
+                column-gap: 80px;
+                @media (max-width: $tablet) {
+                    flex-direction: column;
+                    row-gap: 50px;
+                }
+            }
+            &--last{
+                align-items: center;
+                justify-content: space-between;
+                column-gap: 80px;
+                @media (max-width: $tablet) {
+                    flex-direction: column;
+                    row-gap: 50px;
+                }
+            }
     }
-    &__paragrath{
+    &__paragraph{
+        display: flex;
+        align-items: center;
+        flex-shrink: 1;
+        width: calc(1 / 2 * 100% - (1 - 1 / 2) * 30px);
+        height: 100%;
+        padding: 20px;
         @include paragraph;
         font-size: 20px;
-        font-family: IBM Plex Sans;
-        font-size: 18px;
         line-height: 27px;
         text-align: left;
+        border: 3px solid $bg-color-dark;
+        border-radius: 10px;
+        @media (max-width: $tablet) {
+            width: 100%;
+        }
+        @media (max-width: $mobile) {
+            font-size: 18px;
+        }
+            &--first{
+                width: 100%;
+            }
+            &--middle{
+                background: $bg-color-light;
+            }
     }
+}
+
+.carousel {
+    display: none;
+		@media (max-width: $mobile) {
+			display: block;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+			margin: 0;
+            .carousel-item{
+                padding: 20px;
+                @include paragraph;
+                font-size: 18px;
+                line-height: 27px;
+                text-align: left;
+                background: $bg-color-light;
+                border: 3px solid $bg-color-dark;
+                border-radius: 10px;
+            }
+            .carousel-indicators {
+                position: static;
+                margin-top: 64px;
+                column-gap: 20px;
+                @media (max-width: $tablet) {
+                    margin-top: 40px;
+                    column-gap: 8px;
+                }
+                button {
+                    border-radius: 50%;
+                    width: 10px;
+                    height: 10px;
+                    background-color: transparent;
+                    border: 1px solid #4e4f6e;
+                    @media (max-width: $tablet) {
+                        width: 7px;
+                        height: 7px;
+                    }
+                }
+                button.active {
+                    background-color: $bg-color-accent;
+                    border: transparent;
+                }
+            }
+		}
 }
 
 .footer {
