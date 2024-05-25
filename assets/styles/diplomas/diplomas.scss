@@ -263,12 +263,58 @@
 	}
 }
 
-.main {
-	&__title {
-		margin: 100px 10%;
-		@include title;
-		@media (max-width: $tablet) {
-			margin: 50px 5%;
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	.main {
+		flex-grow: 1;
+		&__title {
+			margin: 100px 10%;
+			@include title;
+			@media (max-width: $tablet) {
+				margin: 50px 5%;
+			}
+		}
+	}
+}
+
+.carousel {
+	.carousel-item {
+		.img {
+			object-fit: contain;
+			@media (max-width: $desktop-xl) {
+				height: 900px;
+			}
+			@media (max-width: $desktop-lg) {
+				height: 600px;
+			}
+			@media (max-width: $mobile) {
+				height: 525px;
+			}
+		}
+	}
+	.carousel-indicators {
+		position: static;
+		margin: 40px 0 100px;
+		column-gap: 20px;
+		@media (max-width: $mobile) {
+			margin: 30px 0 50px;
+		}
+		button {
+			width: 12px;
+			height: 12px;
+			border-radius: 50%;
+			border: 1px solid $text-dark;
+			background-color: transparent;
+			@media (max-width: $tablet) {
+				width: 7px;
+				height: 7px;
+			}
+		}
+		button.active {
+			background-color: $text-dark;
+			border: transparent;
 		}
 	}
 }
