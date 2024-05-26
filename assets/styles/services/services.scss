@@ -1,2 +1,1003 @@
 @import "../vars";
 @import "../templates";
+
+.header {
+  height: auto;
+  padding: 10px 0;
+  font-family: $font-family;
+  box-shadow: $header-shadow;
+  @media (max-width: $tablet) {
+    display: grid;
+    margin-bottom: 25px;
+  }
+  &__nav {
+    display: flex;
+    align-items: center;
+    width: 95%;
+    margin: auto;
+    @media (max-width: $tablet) {
+      width: 90%;
+      height: auto;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.logo-container {
+  display: none;
+  @media (max-width: $tablet) {
+    display: flex;
+    flex-grow: 1;
+    width: 65%;
+    margin-right: 10%;
+  }
+  &__name {
+    margin: 0;
+    @media (max-width: $tablet) {
+      @include title;
+      line-height: 120%;
+      font-size: 36px;
+      text-align: left;
+    }
+    @media (max-width: $mobile) {
+      line-height: 36px;
+      font-size: 28px;
+    }
+  }
+}
+
+.menu-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 400;
+  font-family: $font-family;
+  color: $text-dark;
+  @media (max-width: $tablet) {
+    display: none;
+  }
+}
+
+.menu {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  @media (max-width: $mobile) {
+    display: block;
+  }
+  &__item {
+    position: relative;
+    flex-shrink: 1;
+    list-style: none;
+  }
+  &__link {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    color: $text-dark;
+    transition: all 0.3s ease;
+    &:hover {
+      background: $bg-color-light;
+      box-shadow: $header-shadow;
+      transition: all 0.3s ease;
+    }
+    &:hover ~ .menu-directions {
+      display: block;
+    }
+  }
+  &__button {
+    display: flex;
+    justify-self: flex-end;
+    padding: 15px 20px;
+    @extend %button-text;
+    text-decoration: none;
+    color: $text-light;
+    background: $bg-color-dark;
+    border-radius: 50px;
+    @media (max-width: $tablet) {
+      display: none;
+    }
+  }
+}
+
+.menu-directions {
+  position: absolute;
+  display: none;
+  width: 400px;
+  background-color: $text-light;
+  box-shadow: $header-shadow;
+  &:hover {
+    display: block;
+  }
+  &__item {
+    position: relative;
+    list-style: none;
+  }
+  &__link {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: $text-dark;
+    list-style: none;
+    transition: all 0.3s ease;
+    &:hover {
+      background: $bg-color-light;
+      box-shadow: $header-shadow;
+      transition: all 0.3s ease;
+    }
+  }
+}
+
+.dropdown-icon {
+  z-index: 2;
+  display: inline-block;
+  vertical-align: top;
+  width: 15px;
+  height: 15px;
+  padding-left: 5px;
+  font-style: normal;
+  font-size: 16px;
+  color: $bg-color-dark;
+  background-color: transparent;
+  &::after {
+    content: "\2228";
+  }
+}
+
+.dropdown:hover .dropdown-icon::after {
+  content: "\2227";
+}
+
+.burger-menu {
+  display: none;
+  @media (max-width: $tablet) {
+    display: block;
+    box-shadow: $header-shadow;
+    &__burger-checkbox {
+      opacity: 0;
+    }
+    &__burger-checkbox:checked ~ &__burger > span {
+      width: 100%;
+      transform: rotate(45deg);
+    }
+    &__burger-checkbox:checked ~ &__burger > span::before {
+      top: 0;
+      width: 100%;
+      transform: rotate(0);
+    }
+    &__burger-checkbox:checked ~ &__burger > span::after {
+      top: 0;
+      width: 100%;
+      transform: rotate(90deg);
+    }
+    &__burger-checkbox:checked ~ .menu {
+      visibility: visible;
+      right: 0;
+    }
+    &__burger-checkbox:checked ~ .menu {
+      visibility: visible;
+      right: 0;
+    }
+    &__burger-checkbox:checked ~ &__burger {
+      border: none;
+    }
+    &__burger {
+      position: absolute;
+      top: 20px;
+      right: 5%;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      width: 48px;
+      height: 48px;
+      border: 1px solid $bg-color-dark;
+      border-radius: 6px;
+      @include hover-cursor;
+      & > span,
+      & > span::before,
+      & > span::after {
+        position: absolute;
+        left: 16px;
+        display: block;
+        width: 16px;
+        height: 2px;
+        background-color: $bg-color-dark;
+        border-radius: 1px;
+        transition-duration: 0.25s;
+      }
+      & > span::before {
+        content: "";
+        left: 0;
+        top: -8px;
+      }
+      & > span::after {
+        content: "";
+        left: 0;
+        top: 8px;
+      }
+    }
+    .menu {
+      position: fixed;
+      visibility: hidden;
+      top: 0;
+      right: 0;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      max-width: 400px;
+      height: auto;
+      margin: 0;
+      padding: 80px 0 20px;
+      background-color: $text-light;
+      box-shadow: $header-shadow;
+      transition-duration: 0.25s;
+      &__item {
+        display: block;
+        margin-right: 24px;
+        text-align: end;
+        transition-duration: 0.25s;
+      }
+      &__link {
+        font-size: 20px;
+        line-height: 24px;
+        font-weight: 400;
+        font-family: $font-family;
+        text-decoration: none;
+        color: $text-dark;
+        &:hover {
+          background: $bg-color-light;
+          box-shadow: $header-shadow;
+          transition: all 0.3s ease;
+        }
+      }
+    }
+  }
+}
+
+.main {
+  &__title {
+    margin: 100px 10%;
+    @include title;
+    @media (max-width: $tablet) {
+      margin: 50px 5%;
+    }
+  }
+  &__line {
+    width: 100%;
+    margin-bottom: 100px;
+    border: 1px solid $bg-color-dark;
+    @media (max-width: $tablet) {
+      margin-bottom: 50px;
+    }
+  }
+}
+
+.card {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: stretch;
+  align-items: stretch;
+  width: 100%;
+  height: min-content;
+  padding: 30px 30px 40px;
+  background-color: $bg-color-accent;
+  border: 3px solid $bg-color-dark;
+  border-radius: 5px;
+  @media (max-width: $mobile) {
+    padding: 10px 10px 20px;
+  }
+  &__title {
+    display: flex;
+    align-self: flex-start;
+    width: 100%;
+    margin-bottom: 25px;
+    @include title;
+    font-size: 28px;
+    line-height: 40px;
+    font-family: $font-family;
+    text-align: left;
+    @media (max-width: $tablet) {
+      margin-bottom: 10px;
+      font-size: 20px;
+      line-height: 40px;
+    }
+  }
+  &__list {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-content: center;
+    row-gap: 20px;
+    width: 100%;
+    height: auto;
+  }
+  &__list-item {
+    display: flex;
+    width: calc(1 / 2 * 100% - (1 - 1 / 2) * 30px);
+    @include paragraph;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 500;
+    text-align: left;
+    @media (max-width: $mobile) {
+      width: 100%;
+    }
+  }
+  &__paragraph {
+    @include title;
+    font-size: 40px;
+    line-height: 48px;
+    font-weight: 700;
+    text-align: left;
+    font-family: $font-family;
+    @media (max-width: $tablet) {
+      font-size: 32px;
+    }
+  }
+}
+.regression {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: stretch;
+  width: 80%;
+  margin: 0 10% 100px;
+  @media (max-width: $tablet) {
+    width: 90%;
+    margin: 0 5% 50px;
+  }
+  &__title {
+    height: min-content;
+    @include title;
+    font-size: 36px;
+    line-height: 42px;
+    font-family: $font-family;
+    text-align: left;
+    text-decoration: underline;
+    @media (max-width: $tablet) {
+      font-size: 24px;
+      line-height: 140%;
+    }
+  }
+  &__services {
+    display: grid;
+    grid-template-areas:
+      "description description description"
+      "duration session-price package-price";
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr min-content;
+    column-gap: 50px;
+    row-gap: 50px;
+    justify-content: stretch;
+    padding-top: 50px;
+    margin-bottom: 50px;
+    @media (max-width: $tablet) {
+      column-gap: 25px;
+      row-gap: 25px;
+      padding-top: 25px;
+      margin-bottom: 25px;
+    }
+    @media (max-width: $mobile) {
+      grid-template-areas:
+        "description description"
+        "duration session-price"
+        "package-price package-price";
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(3, min-content);
+    }
+    .card {
+      &--description {
+        grid-area: description;
+        height: 100%;
+        .card__list-item {
+          &::before {
+            content: "\2022 \2002";
+          }
+        }
+      }
+      &--duration {
+        grid-area: duration;
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+        row-gap: 20px;
+        height: 100%;
+        .card__paragraph {
+          &::after {
+            content: "\2002часа";
+            font-size: 20px;
+            line-height: 24px;
+            @media (max-width: $tablet) {
+              font-size: 16px;
+              line-height: 20px;
+            }
+          }
+        }
+      }
+      &--price {
+        grid-area: session-price;
+        align-items: flex-start;
+        height: 100%;
+        .card__paragraph {
+          &::after {
+            content: "\2002руб";
+            font-size: 20px;
+            line-height: 24px;
+            @media (max-width: $tablet) {
+              font-size: 16px;
+              line-height: 20px;
+            }
+          }
+        }
+      }
+      &--package {
+        grid-area: package-price;
+        flex-flow: column wrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+        row-gap: 20px;
+        height: 100%;
+        @media (max-width: $mobile) {
+          flex-flow: row wrap;
+          justify-content: space-between;
+        }
+        .card__paragraph {
+          @media (max-width: $mobile) {
+            width: calc(1 / 3 * 100%);
+          }
+          &::after {
+            content: "\2002руб";
+            font-size: 20px;
+            line-height: 24px;
+            @media (max-width: $tablet) {
+              font-size: 16px;
+              line-height: 20px;
+            }
+          }
+          &--last {
+            align-self: flex-end;
+            text-align: right;
+            text-decoration: line-through;
+            &::before {
+              content: "вместо\2002";
+              display: inline-block;
+              font-size: 20px;
+              line-height: 24px;
+              text-align: right;
+              text-decoration: line-through;
+              @media (max-width: $tablet) {
+                font-size: 16px;
+                line-height: 20px;
+              }
+            }
+            &::after {
+              content: "";
+            }
+          }
+        }
+      }
+    }
+  }
+  &__button {
+    display: flex;
+    justify-content: center;
+    min-height: 100px;
+    @media (max-width: $tablet) {
+      min-height: 80px;
+    }
+    @media (max-width: $mobile) {
+      min-height: 50px;
+    }
+  }
+  &__link {
+    @include services-buttons;
+  }
+}
+
+.legalization {
+  @extend .regression;
+  &__title {
+    @extend .regression__title;
+  }
+  &__services {
+    @extend .regression__services;
+    .card {
+      background-color: $bg-color-dark;
+      &__title {
+        color: $text-light;
+      }
+      &__list-item {
+        color: $text-light;
+        &::before {
+          content: "\2022 \2002";
+        }
+      }
+      &__paragraph {
+        color: $text-light;
+        &::after {
+          content: "\2002минут";
+        }
+      }
+      &--duration {
+        .card__paragraph {
+          &::after {
+            content: "\2002минут";
+          }
+        }
+      }
+      &--price {
+        align-items: flex-start;
+        .card__paragraph {
+          &--last {
+            align-self: flex-end;
+            text-align: right;
+            text-decoration: line-through;
+            &::after {
+              content: "";
+            }
+            &::before {
+              content: "вместо";
+              display: inline-block;
+              font-size: 20px;
+              line-height: 24px;
+              text-decoration: line-through;
+              @media (max-width: $tablet) {
+                font-size: 16px;
+                line-height: 20px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &__button {
+    @extend .regression__button;
+  }
+  &__link {
+    @extend .regression__link;
+    color: $text-light;
+    background-color: $bg-color-dark;
+  }
+}
+
+.combo {
+  @extend .regression;
+  &__title {
+    @extend .regression__title;
+    margin-bottom: 50px;
+    @media (max-width: $tablet) {
+      margin-bottom: 25px;
+    }
+  }
+  &__services {
+    @extend .regression__services;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: stretch;
+    align-items: stretch;
+    width: 100%;
+    height: min-content;
+    padding: 30px 30px 40px;
+    margin-bottom: 50px;
+    background-color: $bg-color-accent;
+    border: 3px solid $bg-color-dark;
+    border-radius: 5px;
+    @media (max-width: $tablet) {
+      margin-bottom: 25px;
+    }
+    .package-price {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+      align-items: stretch;
+      width: 100%;
+      height: min-content;
+      &__list-one {
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+        align-items: flex-start;
+        row-gap: 30px;
+        width: calc(1 / 2 * 60%);
+        height: 100%;
+        list-style: none;
+        @media (max-width: $mobile) {
+          width: calc(1 / 2 * 100% - (1 / 2) * 30px);
+        }
+      }
+      .plus {
+        @include title;
+        font-size: 40px;
+        line-height: 48px;
+        font-weight: 700;
+        font-family: $font-family;
+        text-align: right;
+      }
+      &__list-two {
+        @extend .package-price__list-one;
+        align-items: flex-end;
+      }
+      &__paragraph {
+        @include title;
+        font-size: 40px;
+        line-height: 48px;
+        font-weight: 700;
+        font-family: $font-family;
+        text-align: left;
+        @media (max-width: $tablet) {
+          font-size: 32px;
+        }
+        &--first::after {
+          content: "сессии регрессии";
+          font-size: 20px;
+          line-height: 24px;
+          @media (max-width: $tablet) {
+            font-size: 16px;
+            line-height: 20px;
+          }
+        }
+        &--second {
+          align-self: flex-end;
+          &::after {
+            content: "руб";
+            font-size: 20px;
+            line-height: 24px;
+            @media (max-width: $tablet) {
+              font-size: 16px;
+              line-height: 20px;
+            }
+          }
+        }
+        &--third::after {
+          content: "сессии по Методу";
+          font-size: 20px;
+          line-height: 24px;
+          @media (max-width: $tablet) {
+            font-size: 16px;
+            line-height: 20px;
+          }
+        }
+        &--four {
+          align-self: flex-start;
+          text-align: left;
+          text-decoration: line-through;
+          &::before {
+            content: "вместо";
+            display: inline-block;
+            font-size: 20px;
+            line-height: 24px;
+            text-decoration: line-through;
+            @media (max-width: $tablet) {
+              font-size: 16px;
+              line-height: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+  &__button {
+    @extend .regression__button;
+  }
+  &__link {
+    @extend .regression__link;
+  }
+}
+
+.numerology {
+  @extend .regression;
+  display: flex;
+  flex-flow: row wrap;
+  &__title {
+    @extend .regression__title;
+  }
+  &__services {
+    @extend .regression__services;
+    grid-template-areas: "numerology-express numerology-full";
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    column-gap: 50px;
+    justify-content: stretch;
+    width: 100%;
+    padding-top: 50px;
+    margin: 0;
+    @media (max-width: $tablet) {
+      grid-template-areas:
+        "numerology-express"
+        "numerology-full";
+      grid-template-columns: 1fr;
+      row-gap: 25px;
+      padding-top: 0;
+    }
+    .numerology-express {
+      grid-area: numerology-express;
+      display: grid;
+      grid-template-areas:
+        "title"
+        "description"
+        "session-price"
+        "button";
+      grid-template-columns: 1fr;
+      grid-template-rows: 50px 2fr min-content min-content;
+      justify-content: stretch;
+      align-items: stretch;
+      row-gap: 50px;
+      @media (max-width: $tablet) {
+        row-gap: 25px;
+      }
+      &__title {
+        @extend .regression__title;
+        grid-area: title;
+        align-self: flex-end;
+        text-decoration: none;
+        @media (max-width: $tablet) {
+          line-height: 20px;
+        }
+      }
+      .card--description {
+        grid-area: description;
+        flex-flow: column wrap;
+        align-content: flex-start;
+        height: 100%;
+        background-color: $bg-color-dark;
+        .card__title {
+          color: $text-light;
+        }
+        .card__list {
+          flex-flow: column wrap;
+          justify-content: flex-start;
+          align-content: flex-start;
+          .card__list-item {
+            width: 100%;
+            color: $text-light;
+          }
+        }
+      }
+      .card--price {
+        grid-area: session-price;
+        background-color: $bg-color-dark;
+        @media (max-width: $tablet) {
+          justify-self: center;
+        }
+        .card__title {
+          color: $text-light;
+        }
+        .card__paragraph {
+          color: $text-light;
+          content: "\2002руб";
+        }
+      }
+      &__button {
+        @extend .regression__button;
+        grid-area: button;
+      }
+      &__link {
+        @include services-buttons;
+        color: $text-light;
+        background-color: $bg-color-dark;
+      }
+    }
+    .numerology-full {
+      @extend .numerology-express;
+      grid-area: numerology-full;
+      &__title {
+        @extend .regression__title;
+        grid-area: title;
+        align-self: flex-end;
+        text-decoration: none;
+        @media (max-width: $tablet) {
+          line-height: 20px;
+        }
+      }
+      .card--description {
+        grid-area: description;
+        flex-flow: column wrap;
+        align-content: flex-start;
+        height: 100%;
+        background-color: $bg-color-dark;
+        .card__title {
+          color: $text-light;
+        }
+        .card__list {
+          flex-flow: column wrap;
+          justify-content: stretch;
+          align-content: flex-start;
+          .card__list-item {
+            width: 100%;
+            color: $text-light;
+            &:last-child::before {
+              content: "+\2002";
+              z-index: 1;
+            }
+          }
+        }
+      }
+      .card--price {
+        grid-area: session-price;
+        background-color: $bg-color-dark;
+        @media (max-width: $tablet) {
+          height: auto;
+          justify-self: center;
+        }
+        .card__title {
+          color: $text-light;
+        }
+        .card__paragraph {
+          content: "\2002руб";
+          color: $text-light;
+        }
+      }
+      &__button {
+        @extend .regression__button;
+        grid-area: button;
+      }
+      &__link {
+        @include services-buttons;
+        color: $text-light;
+        background-color: $bg-color-dark;
+      }
+    }
+  }
+}
+
+.birthday {
+  @extend .regression;
+  &__title {
+    @extend .regression__title;
+    height: min-content;
+    @media (max-width: $tablet) {
+      line-height: 140%;
+    }
+  }
+  &__services {
+    display: grid;
+    grid-template-areas: "session-one session-two package-price";
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: min-content;
+    column-gap: 50px;
+    row-gap: 50px;
+    justify-content: stretch;
+    padding-top: 50px;
+    margin-bottom: 50px;
+    @media (max-width: $tablet) {
+      column-gap: 25px;
+      row-gap: 25px;
+      padding-top: 25px;
+      margin-bottom: 25px;
+    }
+    @media (max-width: $mobile) {
+      grid-template-areas:
+        "session-one session-two"
+        "package-price package-price";
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, min-content);
+    }
+  }
+  .session-one {
+    grid-area: session-one;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    column-gap: 10px;
+    width: 100%;
+    height: 100%;
+    padding: 30px 30px 40px;
+    background-color: $bg-color-accent;
+    border: 3px solid $bg-color-dark;
+    border-radius: 5px;
+    @media (max-width: $mobile) {
+      padding: 10px 10px 20px;
+    }
+    .plus {
+      @include title;
+      font-size: 40px;
+      line-height: 48px;
+      font-weight: 700;
+      font-family: $font-family;
+      text-align: left;
+    }
+    &__paragraph {
+      display: flex;
+      align-self: center;
+      width: 100%;
+      @include title;
+      font-size: 28px;
+      line-height: 40px;
+      font-family: $font-family;
+      text-align: left;
+      @media (max-width: $tablet) {
+        margin-bottom: 10px;
+        font-size: 20px;
+        line-height: 40px;
+      }
+    }
+  }
+  .session-two {
+    @extend .session-one;
+    grid-area: session-two;
+    &__paragraph {
+      display: flex;
+      align-self: center;
+      width: 100%;
+      @include title;
+      font-size: 28px;
+      line-height: 40px;
+      font-family: $font-family;
+      text-align: left;
+      @media (max-width: $tablet) {
+        margin-bottom: 10px;
+        font-size: 20px;
+        line-height: 40px;
+      }
+    }
+  }
+  .package-price {
+    @extend .session-one;
+    grid-area: package-price;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    row-gap: 20px;
+    &__title {
+      display: flex;
+      align-self: flex-start;
+      width: 100%;
+      margin-bottom: 25px;
+      @include title;
+      font-size: 28px;
+      line-height: 40px;
+      font-family: $font-family;
+      text-align: left;
+      @media (max-width: $tablet) {
+        margin-bottom: 10px;
+        font-size: 20px;
+        line-height: 40px;
+      }
+    }
+    &__paragraph {
+      @include title;
+      font-size: 40px;
+      line-height: 48px;
+      font-weight: 700;
+      text-align: left;
+      font-family: $font-family;
+      @media (max-width: $tablet) {
+        font-size: 32px;
+      }
+      &::after {
+        content: "\2002руб";
+        font-size: 20px;
+        line-height: 24px;
+        @media (max-width: $tablet) {
+          font-size: 16px;
+          line-height: 20px;
+        }
+      }
+    }
+  }
+  &__button {
+    @extend .regression__button;
+  }
+  &__link {
+    @include services-buttons;
+  }
+}
+
+.footer {
+  padding-top: 50px;
+  @include footer-container;
+  @media (max-width: $mobile) {
+    padding-top: 25px;
+  }
+}
