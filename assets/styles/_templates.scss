@@ -55,17 +55,13 @@
 }
 
 @mixin content-photo {
-  height: 790px;
+  height: auto;
   @extend %img-style-fit;
   .img {
     border-radius: 6px;
   }
-  @media (max-width: $tablet) {
-    height: 500px;
-  }
   @media (max-width: $mobile) {
-    width: 60%;
-    height: 450px;
+    width: 90%;
     margin: 0 auto;
   }
 }
@@ -132,7 +128,7 @@
     &::before {
       content: "";
       width: 72px;
-      height: 72px;    
+      height: 72px;
       background-size: contain;
       background-position: center;
       background-repeat: no-repeat;
@@ -175,9 +171,9 @@
       font-size: 28px;
       line-height: 120%;
     }
-    .br{
+    .br {
       display: none;
-      @media (max-width: $mobile){
+      @media (max-width: $mobile) {
         display: inline;
       }
     }
@@ -207,12 +203,12 @@
     }
   }
   &__link-icon {
-      width: 100%;
+    width: 100%;
   }
 }
 
 @mixin hover-cursor {
-	&:hover {
-		cursor: pointer;
-	}
+  &:hover {
+    cursor: pointer;
+  }
 }
