@@ -160,7 +160,6 @@
 	display: none;
 	@media (max-width: $tablet) {
 		display: block;
-		box-shadow: $header-shadow;
 		&__burger-checkbox {
 			opacity: 0;
 		}
@@ -283,14 +282,46 @@
 	.carousel-item {
 		.img {
 			object-fit: contain;
-			@media (max-width: $desktop-xl) {
-				height: 900px;
-			}
-			@media (max-width: $desktop-lg) {
-				height: 600px;
-			}
+			height: 70vh;
 			@media (max-width: $mobile) {
 				height: 525px;
+			}
+		}
+	}
+	.carousel-controls {
+		@media (max-width: $tablet) {
+			display: none;
+		}
+		.carousel-control-prev {
+			@media (max-width: $desktop-xl) {
+				left: 50px;
+			}
+			@media (max-width: $desktop-lg) {
+				left: 40px;
+			}
+		}
+		.carousel-control-prev-icon {
+			@media (max-width: $desktop-xl) {
+				background-size: 70px;
+			}
+			@media (max-width: $desktop-lg) {
+				background-size: 50px;
+			}
+		}
+		.carousel-control-next {
+			@media (max-width: $desktop-xl) {
+				right: 50px;
+			}
+			@media (max-width: $desktop-lg) {
+				right: 40px;
+			}
+		}
+		.carousel-control-next-icon {
+			@media (max-width: $desktop-xl) {
+				background-size: 70px;
+			}
+			@media (max-width: $desktop-lg) {
+				background-size: 50px;
 			}
 		}
 	}

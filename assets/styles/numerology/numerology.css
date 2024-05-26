@@ -386,20 +386,14 @@
   }
 }
 .content__photo {
-  height: 790px;
+  height: auto;
 }
 .content__photo .img {
   border-radius: 6px;
 }
-@media (max-width: 1024px) {
-  .content__photo {
-    height: 500px;
-  }
-}
 @media (max-width: 767px) {
   .content__photo {
-    width: 60%;
-    height: 450px;
+    width: 90%;
     margin: 0 auto;
   }
 }
