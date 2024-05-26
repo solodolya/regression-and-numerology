@@ -201,7 +201,6 @@
 @media (max-width: 1024px) {
   .burger-menu {
     display: block;
-    box-shadow: 0px 3px 9px 0px rgba(57, 20, 0, 0.08);
   }
   .burger-menu__burger-checkbox {
     opacity: 0;
@@ -488,6 +487,7 @@
        column-gap: 50px;
   row-gap: 50px;
   justify-content: stretch;
+  width: 100%;
   padding-top: 50px;
   margin-bottom: 50px;
 }
@@ -561,12 +561,21 @@
 @media (max-width: 767px) {
   .regression__services .card--package, .numerology__services .card--package, .combo__services .card--package, .legalization__services .card--package {
     flex-flow: row wrap;
+  }
+}
+@media (max-width: 560px) {
+  .regression__services .card--package, .numerology__services .card--package, .combo__services .card--package, .legalization__services .card--package {
     justify-content: space-between;
   }
 }
 @media (max-width: 767px) {
   .regression__services .card--package .card__paragraph, .numerology__services .card--package .card__paragraph, .combo__services .card--package .card__paragraph, .legalization__services .card--package .card__paragraph {
     width: 33.3333333333%;
+  }
+}
+@media (max-width: 560px) {
+  .regression__services .card--package .card__paragraph, .numerology__services .card--package .card__paragraph, .combo__services .card--package .card__paragraph, .legalization__services .card--package .card__paragraph {
+    width: 50%;
   }
 }
 .regression__services .card--package .card__paragraph::after, .numerology__services .card--package .card__paragraph::after, .combo__services .card--package .card__paragraph::after, .legalization__services .card--package .card__paragraph::after {
@@ -584,6 +593,21 @@
   align-self: flex-end;
   text-align: right;
   text-decoration: line-through;
+  width: 100%;
+}
+@media (max-width: 767px) {
+  .regression__services .card--package .card__paragraph--last, .numerology__services .card--package .card__paragraph--last, .combo__services .card--package .card__paragraph--last, .legalization__services .card--package .card__paragraph--last {
+    align-self: flex-start;
+    text-align: left;
+    width: 33.3333333333%;
+  }
+}
+@media (max-width: 560px) {
+  .regression__services .card--package .card__paragraph--last, .numerology__services .card--package .card__paragraph--last, .combo__services .card--package .card__paragraph--last, .legalization__services .card--package .card__paragraph--last {
+    align-self: flex-end;
+    width: 100%;
+    text-align: right;
+  }
 }
 .regression__services .card--package .card__paragraph--last::before, .numerology__services .card--package .card__paragraph--last::before, .combo__services .card--package .card__paragraph--last::before, .legalization__services .card--package .card__paragraph--last::before {
   content: "вместо ";

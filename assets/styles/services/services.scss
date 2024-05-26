@@ -160,7 +160,6 @@
   display: none;
   @media (max-width: $tablet) {
     display: block;
-    box-shadow: $header-shadow;
     &__burger-checkbox {
       opacity: 0;
     }
@@ -377,6 +376,7 @@
     column-gap: 50px;
     row-gap: 50px;
     justify-content: stretch;
+    width: 100%;
     padding-top: 50px;
     margin-bottom: 50px;
     @media (max-width: $tablet) {
@@ -448,11 +448,16 @@
         height: 100%;
         @media (max-width: $mobile) {
           flex-flow: row wrap;
+        }
+        @media (max-width: 560px) {
           justify-content: space-between;
         }
         .card__paragraph {
           @media (max-width: $mobile) {
             width: calc(1 / 3 * 100%);
+          }
+          @media (max-width: 560px) {
+            width: calc(1 / 2 * 100%);
           }
           &::after {
             content: "\2002руб";
@@ -467,6 +472,19 @@
             align-self: flex-end;
             text-align: right;
             text-decoration: line-through;
+            width: 100%;
+            @media (max-width: $tablet) {
+            }
+            @media (max-width: $mobile) {
+              align-self: flex-start;
+              text-align: left;
+              width: (1 / 3 * 100%);
+            }
+            @media (max-width: 560px) {
+              align-self: flex-end;
+              width: 100%;
+              text-align: right;
+            }
             &::before {
               content: "вместо\2002";
               display: inline-block;
