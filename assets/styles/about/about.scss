@@ -160,7 +160,6 @@
 	display: none;
 	@media (max-width: $tablet) {
 		display: block;
-		box-shadow: $header-shadow;
 		&__burger-checkbox {
 			opacity: 0;
 		}
