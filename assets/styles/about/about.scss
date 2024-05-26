@@ -292,13 +292,8 @@
 		}
 	}
 	&__photo {
-		@extend %img-style-fit;
-		.img {
-			border-radius: 6px;
-		}
-		height: auto;
+		@include content-photo;
 		@media (max-width: $mobile) {
-			width: 90%;
 			order: 2;
 		}
 	}

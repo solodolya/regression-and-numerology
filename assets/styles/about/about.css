@@ -359,6 +359,11 @@
 @media (max-width: 767px) {
   .content__photo {
     width: 90%;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 767px) {
+  .content__photo {
     order: 2;
   }
 }
