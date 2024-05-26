@@ -66,6 +66,30 @@
   }
 }
 
+@mixin services-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  height: 101px;
+  @extend %button-text;
+  text-decoration: none;
+  color: $text-dark;
+  background-color: $bg-color-accent;
+  border: 3px solid $bg-color-dark;
+  border-radius: 50px;
+  @media (max-width: $tablet) {
+    width: 300px;
+    height: 80px;
+    font-size: 20px;
+  }
+  @media (max-width: $mobile) {
+    width: 250px;
+    height: 60px;
+    font-size: 16px;
+  }
+}
+
 @mixin consultation-container {
   display: flex;
   flex-direction: column;
