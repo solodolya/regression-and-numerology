@@ -465,7 +465,9 @@
     row-gap: 40px;
     padding: 30px 5%;
   }
-
+  @media (max-width: $mobile) {
+    row-gap: 20px;
+  }
   &__title {
     @include title;
     font-size: 40px;
@@ -508,6 +510,21 @@
   }
   &__link-icon {
     width: 100%;
+  }
+  .it-girl {
+    display: block;
+    text-align: center;
+    width: 100%;
+    height: min-content;
+    @include paragraph;
+    color: $text-light;
+    text-align: center;
+    &__link {
+      @include paragraph;
+      font-weight: 700;
+      color: $text-light;
+      text-decoration: none;
+    }
   }
 }
 
