@@ -359,6 +359,7 @@
       flex-flow: row wrap;
       justify-content: center;
       align-items: stretch;
+      column-gap: 5px;
       width: 100%;
       height: min-content;
       &__list-one {
@@ -670,13 +671,13 @@
       display: flex;
       align-self: center;
       width: 100%;
+      margin-bottom: 0;
       @include title;
       font-size: 28px;
       line-height: 40px;
       font-family: $font-family;
       text-align: left;
       @media (max-width: $tablet) {
-        margin-bottom: 10px;
         font-size: 20px;
         line-height: 40px;
       }
@@ -689,13 +690,13 @@
       display: flex;
       align-self: center;
       width: 100%;
+      margin-bottom: 0;
       @include title;
       font-size: 28px;
       line-height: 40px;
       font-family: $font-family;
       text-align: left;
       @media (max-width: $tablet) {
-        margin-bottom: 10px;
         font-size: 20px;
         line-height: 40px;
       }

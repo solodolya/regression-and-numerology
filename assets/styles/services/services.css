@@ -750,6 +750,8 @@
   flex-flow: row wrap;
   justify-content: center;
   align-items: stretch;
+  -moz-column-gap: 5px;
+       column-gap: 5px;
   width: 100%;
   height: -moz-min-content;
   height: min-content;
@@ -1148,6 +1150,7 @@
   display: flex;
   align-self: center;
   width: 100%;
+  margin-bottom: 0;
   font-size: 48px;
   line-height: 108%;
   font-weight: 500;
@@ -1167,7 +1170,6 @@
 }
 @media (max-width: 1024px) {
   .birthday .session-one__paragraph {
-    margin-bottom: 10px;
     font-size: 20px;
     line-height: 40px;
   }
@@ -1179,6 +1181,7 @@
   display: flex;
   align-self: center;
   width: 100%;
+  margin-bottom: 0;
   font-size: 48px;
   line-height: 108%;
   font-weight: 500;
@@ -1198,7 +1201,6 @@
 }
 @media (max-width: 1024px) {
   .birthday .session-two__paragraph {
-    margin-bottom: 10px;
     font-size: 20px;
     line-height: 40px;
   }
@@ -1316,6 +1318,11 @@
     padding: 30px 5%;
   }
 }
+@media (max-width: 767px) {
+  .footer {
+    row-gap: 20px;
+  }
+}
 .footer__title {
   font-size: 48px;
   line-height: 108%;
@@ -1382,6 +1389,40 @@
 }
 .footer__link-icon {
   width: 100%;
+}
+.footer .it-girl {
+  display: block;
+  text-align: center;
+  width: 100%;
+  height: -moz-min-content;
+  height: min-content;
+  font-size: 24px;
+  line-height: 133%;
+  font-weight: 400;
+  font-family: "IBM Plex Sans", sans-serif;
+  color: #3d3f4e;
+  color: #ffffff;
+  text-align: center;
+}
+@media (max-width: 767px) {
+  .footer .it-girl {
+    font-size: 18px;
+  }
+}
+.footer .it-girl__link {
+  font-size: 24px;
+  line-height: 133%;
+  font-weight: 400;
+  font-family: "IBM Plex Sans", sans-serif;
+  color: #3d3f4e;
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+}
+@media (max-width: 767px) {
+  .footer .it-girl__link {
+    font-size: 18px;
+  }
 }
 @media (max-width: 767px) {
   .footer {
